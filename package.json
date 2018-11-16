@@ -1,0 +1,44 @@
+{
+  "name": "kadi5530-telegram",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A simple bot to send messages about destiny 2 to group chats",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nipanga/kadi5530_telegram.git"
+  },
+  "license": "MIT",
+  "author": "Juliano A. Felipe",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+      "build_and_deploy": "bash ./deploy.sh",
+      "start": "coffee app.coffee -n"
+  },
+  "devDependencies": {
+    "broccoli-asset-rev": "^2.7.0",
+    "loader.js": "^4.7.0",
+    "qunit-dom": "^0.7.1"
+  },
+  "engines": {
+    "node": "6.* || 8.* || >= 10.*"
+  },
+  "dependencies": {
+    "coffee-script": "^1.12.7",
+    "cron": "^1.4.1",
+    "dateformat": "^3.0.3",
+    "express": "^4.16.3",
+    "jsdom": "^12.0.0",
+    "node-telegram-bot-api": "^0.30.0",
+    "request": "^2.88.0",
+    "rss-parser": "^3.4.3",
+    "telegram-bot-api": "^1.2.1"
+  },
+  "main": "app.coffee",
+  "bugs": {
+    "url": "https://github.com/nipanga/kadi5530_telegram/issues"
+  },
+  "homepage": "https://github.com/nipanga/kadi5530_telegram#readme"
+}

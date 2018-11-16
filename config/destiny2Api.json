@@ -1,0 +1,232 @@
+{
+  "ROOT_URL": "https://www.bungie.net/Platform",
+  "DESTINY_2_BASE": "/Destiny2",
+  "MEMBERSHIP_TYPES": {
+    "BUNGIE_NET": "4"
+  },
+  "METHODS": {
+    "GET_DESTINY_MANIFEST": {
+      "VERB": "GET",
+      "URI": "/Manifest/",
+      "PATH_PARAMETERS": {},
+      "QUERY_PARAMETERS": {}
+    },
+    "SEARCH_DESTINY_PLAYER": {
+      "VERB": "GET",
+      "URI": "/SearchDestinyPlayer/MEMBERSHIP_TYPE/DISPLAY_NAME/",
+      "PATH_PARAMETERS": {
+        "MEMBERSHIP_TYPE": "MEMBERSHIP_TYPE",
+        "DISPLAY_NAME": "DISPLAY_NAME"
+      },
+      "QUERY_PARAMETERS": {}
+    },
+    "GET_DESTINY_ENTITY_DEFINITION": {
+      "VERB": "GET",
+      "URI": "/Manifest/ENTITY_TYPE/HASH_IDENTIFIER/",
+      "PATH_PARAMETERS": {
+        "ENTITY_TYPE": "ENTITY_TYPE",
+        "HASH_IDENTIFIER": "HASH_IDENTIFIER"
+      },
+      "QUERY_PARAMETERS": {},
+      "ENTITIES": {
+        "VENDOR": "DestinyVendorDefinition",
+        "MILESTONE": "DestinyMilestoneDefinition",
+        "MILESTONE_ACTIVITY": "DestinyMilestoneActivityDefinition",
+        "INVENTORY_ITEM" : "DestinyInventoryItemDefinition"
+      }
+    },
+    "GET_PROFILE": {
+      "VERB": "GET",
+      "URI": "/MEMBERSHIP_TYPE/Profile/DESTINY_MEMBERSHIP_ID/",
+      "PATH_PARAMETERS": {
+        "MEMBERSHIP_TYPE": "MEMBERSHIP_TYPE",
+        "DESTINY_MEMBERSHIP_ID": "DESTINY_MEMBERSHIP_ID"
+      },
+      "QUERY_PARAMETERS": {
+        "COMPONENTS": "components"
+      }
+    },
+    "GET_CLAN_WEEKLY_REWARD_STATE": {
+      "VERB": "GET",
+      "URI": "/Clan/GROUP_ID/WeeklyRewardState/",
+      "PATH_PARAMETERS": {
+        "GROUP_ID": "GROUP_ID"
+      },
+      "QUERY_PARAMETERS": {}
+    },
+    "GET_VENDORS": {
+      "VERB": "GET",
+      "URI": "/MEMBERSHIP_TYPE/Profile/DESTINY_MEMBERSHIP_ID/Character/CHARACTER_ID/Vendors/",
+      "PATH_PARAMETERS": {
+        "MEMBERSHIP_TYPE": "MEMBERSHIP_TYPE",
+        "DESTINY_MEMBERSHIP_ID": "DESTINY_MEMBERSHIP_ID",
+        "CHARACTER_ID": "CHARACTER_ID"
+      },
+      "QUERY_PARAMETERS": {
+        "COMPONENTS": "components"
+      }
+    },
+    "GET_VENDOR": {
+      "VERB": "GET",
+      "URI": "/MEMBERSHIP_TYPE/Profile/DESTINY_MEMBERSHIP_ID/Character/CHARACTER_ID/Vendors/VENDOR_HASH/",
+      "PATH_PARAMETERS": {
+        "MEMBERSHIP_TYPE": "MEMBERSHIP_TYPE",
+        "DESTINY_MEMBERSHIP_ID": "DESTINY_MEMBERSHIP_ID",
+        "CHARACTER_ID": "CHARACTER_ID",
+        "VENDOR_HASH": "VENDOR_HASH"
+      },
+      "QUERY_PARAMETERS": {
+        "COMPONENTS": "components"
+      }
+    },
+    "GET_PUBLIC_MILESTONE_CONTENT": {
+      "VERB": "GET",
+      "URI": "/Milestones/MILESTONE_HASH/Content/",
+      "PATH_PARAMETERS": {
+        "MILESTONE_HASH": "MILESTONE_HASH"
+      },
+      "QUERY_PARAMETERS": {}
+    },
+    "GET_PUBLIC_MILESTONES": {
+      "VERB": "GET",
+      "URI": "/Milestones/",
+      "PATH_PARAMETERS": {},
+      "QUERY_PARAMETERS": {}
+    }
+  },
+  "PATH_PARAMETERS": {
+    "ENTITY_TYPE": {
+      "DESTINY_VENDOR_DEFINITION": {
+        "ICON": "icon",
+        "NAME": "name",
+        "SOURCE": "source",
+        "TYPE": "type"
+      },
+      "DESTINY_VENDOR_DISPLAY_PROPERTIES_DEFINITION": {
+        "DESCRIPTION": "description",
+        "NAME": "name"
+      },
+      "DESTINY_MILESTONE_DEFINITION": {
+        "IMAGE": "image",
+        "FRIENDLY_NAME": "friendlyName",
+        "HASH": "hash"
+      }
+    }
+  },
+  "QUERY_PARAMETERS": {
+    "COMPONENTS": {
+      "PROFILES": {
+        "CODE": "100",
+        "DESCRIPTION": "Profiles is the most basic component, only relevant when calling GetProfile. This returns basic information about the profile, which is almost nothing: a list of CHARACTER_IDs, some information about the last time you logged in, and that most sobering statistic: how long you've played."
+      },
+      "VENDOR_RECEIPTS": {
+        "CODE": "101",
+        "DESCRIPTION": "Only applicable for GetProfile, this will return information about receipts for refundable vendor items."
+      },
+      "PROFILE_INVENTORIES": {
+        "CODE": "102",
+        "DESCRIPTION": "Asking for this will get you the profile-level inventories, such as your Vault buckets (yeah, the Vault is really inventory buckets located on your Profile)"
+      },
+      "PROFILE_CURRENCIES": {
+        "CODE": "103",
+        "DESCRIPTION": "This will get you a summary of items on your Profile that we consider to be 'currencies', such as Glimmer. I mean, if there's Glimmer in Destiny 2. I didn't say there was Glimmer."
+      },
+      "PROFILE_PROGRESSION": {
+        "CODE": "104",
+        "DESCRIPTION": "This will get you any progression-related information that exists on a Profile-wide level, across all characters."
+      },
+      "CHARACTERS": {
+        "CODE": "200",
+        "DESCRIPTION": "This will get you summary info about each of the characters in the profile."
+      },
+      "CHARACTER_INVENTORIES": {
+        "CODE": "201",
+        "DESCRIPTION": "This will get you information about any non-equipped items on the character or character(s) in question, if you're allowed to see it. You have to either be authenticated as that user, or that user must allow anonymous viewing of their non-equipped items in Bungie.Net settings to actually get results."
+      },
+      "CHARACTER_PROGRESSIONS": {
+        "CODE": "202",
+        "DESCRIPTION": " This will get you information about the progression (faction, experience, etc... 'levels') relevant to each character, if you are the currently authenticated user or the user has elected to allow anonymous viewing of its progression info."
+      },
+      "CHARACTER_RENDERDATA": {
+        "CODE": "203",
+        "DESCRIPTION": "This will get you just enough information to be able to render the character in 3D if you have written a 3D rendering library for Destiny Characters, or 'borrowed' ours. It's okay, I won't tell anyone if you're using it. I'm no snitch. (actually, we don't care if you use it - go to town)"
+      },
+      "CHARACTER_ACTIVITIES": {
+        "CODE": "204",
+        "DESCRIPTION": "This will return info about activities that a user can see and gating on it, if you are the currently authenticated user or the user has elected to allow anonymous viewing of its progression info. Note that the data returned by this can be unfortunately problematic and relatively unreliable in some cases. We'll eventually work on making it more consistently reliable."
+      },
+      "CHARACTER_EQUIPMENT": {
+        "CODE": "205",
+        "DESCRIPTION": "This will return info about the equipped items on the character(s). Everyone can see this."
+      },
+      "ITEM_INSTANCES": {
+        "CODE": "300",
+        "DESCRIPTION": "This will return basic info about instanced items - whether they can be equipped, their tracked status, and some info commonly needed in many places (current damage type, primary stat value, etc)"
+      },
+      "ITEM_OBJECTIVES": {
+        "CODE": "301",
+        "DESCRIPTION": "Items can have Objectives (DestinyObjectiveDefinition) bound to them. If they do, this will return info for items that have such bound objectives."
+      },
+      "ITEM_PERKS": {
+        "CODE": "302",
+        "DESCRIPTION": "Items can have perks (DestinyPerkDefinition). If they do, this will return info for what perks are active on items."
+      },
+      "ITEM_RENDER_DATA": {
+        "CODE": "303",
+        "DESCRIPTION": "If you just want to render the weapon, this is just enough info to do that rendering."
+      },
+      "ITEM_STATS": {
+        "CODE": "304",
+        "DESCRIPTION": "Items can have stats, like rate of fire. Asking for this component will return requested item's stats if they have stats."
+      },
+      "ITEM_SOCKETS": {
+        "CODE": "305",
+        "DESCRIPTION": "Items can have sockets, where plugs can be inserted. Asking for this component will return all info relevant to the sockets on items that have them."
+      },
+      "ITEM_TALENT_GRIDS": {
+        "CODE": "306",
+        "DESCRIPTION": "Items can have talent grids, though that matters a lot less frequently than it used to. Asking for this component will return all relevant info about activated Nodes and Steps on this talent grid, like the good ol' days."
+      },
+      "ITEM_COMMON_DATA": {
+        "CODE": "307",
+        "DESCRIPTION": "Items that *aren't* instanced still have important information you need to know: how much of it you have, the itemHash so you can look up their DestinyInventoryItemDefinition, whether they're locked, etc... Both instanced and non-instanced items will have these properties. You will get this automatically with Inventory components - you only need to pass this when calling GetItem on a specific item."
+      },
+      "ITEM_PLUG_STATES": {
+        "CODE": "308",
+        "DESCRIPTION": "Items that are 'Plugs' can be inserted into sockets. This returns statuses about those plugs and why they can/can't be inserted. I hear you giggling, there's nothing funny about inserting plugs. Get your head out of the gutter and pay attention!"
+      },
+      "VENDORS": {
+        "CODE": "400",
+        "DESCRIPTION": "When obtaining vendor information, this will return summary information about the Vendor or Vendors being returned."
+      },
+      "VENDOR_CATEGORIES": {
+        "CODE": "401",
+        "DESCRIPTION": "When obtaining vendor information, this will return information about the categories of items provided by the Vendor."
+      },
+      "VENDOR_SALES": {
+        "CODE": "402",
+        "DESCRIPTION": "When obtaining vendor information, this will return the information about items being sold by the Vendor."
+      },
+      "KIOSKS": {
+        "CODE": "500",
+        "DESCRIPTION": "Asking for this component will return you the account's Kiosk statuses: that is, what items have been filled out/acquired. But only if you are the currently authenticated user or the user has elected to allow anonymous viewing of its progression info."
+      },
+      "CURRENCY_LOOKUPS": {
+        "CODE": "600",
+        "DESCRIPTION": "'shortcut' component that will give you all of the item hashes/quantities of items that the requested character can use to determine if an action (purchasing, socket insertion) has the required currency. (recall that all currencies are just items, and that some vendor purchases require items that you might not traditionally consider to be a 'currency' like plugs/mods!)"
+      },
+      "PRESENTATION_NODES": {
+        "CODE": "700",
+        "DESCRIPTION": "Returns summary status information about all 'Presentation Nodes'. See DestinyPresentationNodeDefinition for more details, but the gist is that these are entities used by the game UI to bucket Collectibles and Records into a hierarchy of categories. You may ask for and use this data if you want to perform similar bucketing in your own UI: or you can skip it and roll your own."
+      },
+      "COLLECTIBLES": {
+        "CODE": "800",
+        "DESCRIPTION": "Returns summary status information about all 'Collectibles'. These are records of what items you've discovered while playing Destiny, and some other basic information. For detailed information, you will have to call a separate endpoint devoted to the purpose."
+      },
+      "RECORDS": {
+        "CODE": "900",
+        "DESCRIPTION": "Returns summary status information about all 'Records' (also known in the game as 'Triumphs'. I know, it's confusing because there's also 'Moments of Triumph' that will themselves be represented as 'Triumphs.')"
+      }
+    }
+  }
+}

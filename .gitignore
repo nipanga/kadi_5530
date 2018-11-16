@@ -1,0 +1,10 @@
+# # #
+
+node_modules/
+.idea/*
+*.zip
+*.tar.gz
+
+deploy.sh
+package-lock.json
+certs/
