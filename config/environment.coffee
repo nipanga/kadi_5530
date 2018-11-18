@@ -1,7 +1,4 @@
 #
-#
-#
-
 class Env
   @SERVER_URL: process.env.KADI_SERVER_URL
   @SERVER_PORT: process.env.KADI_SERVER_PORT

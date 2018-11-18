@@ -14,8 +14,8 @@
     "test": "tests"
   },
   "scripts": {
-      "build_and_deploy": "bash ./deploy.sh",
-      "start": "coffee app.coffee -n"
+    "build_and_deploy": "bash ./deploy.sh",
+    "start": "coffee app.coffee -n"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",

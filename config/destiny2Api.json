@@ -66,19 +66,6 @@
         "COMPONENTS": "components"
       }
     },
-    "GET_VENDOR": {
-      "VERB": "GET",
-      "URI": "/MEMBERSHIP_TYPE/Profile/DESTINY_MEMBERSHIP_ID/Character/CHARACTER_ID/Vendors/VENDOR_HASH/",
-      "PATH_PARAMETERS": {
-        "MEMBERSHIP_TYPE": "MEMBERSHIP_TYPE",
-        "DESTINY_MEMBERSHIP_ID": "DESTINY_MEMBERSHIP_ID",
-        "CHARACTER_ID": "CHARACTER_ID",
-        "VENDOR_HASH": "VENDOR_HASH"
-      },
-      "QUERY_PARAMETERS": {
-        "COMPONENTS": "components"
-      }
-    },
     "GET_PUBLIC_MILESTONE_CONTENT": {
       "VERB": "GET",
       "URI": "/Milestones/MILESTONE_HASH/Content/",

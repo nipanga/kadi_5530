@@ -1,16 +1,13 @@
 #
-#
-#
-Config = require '../../config/config.json'
 Destiny2Api = require '../../config/destiny2Api.json'
 Destiny2Milestones = require '../../config/destiny2Milestones.json'
 Bungie = require './bungie'
-fs = require 'fs'
+Bot = require('../bot')
 
 
-class Milestones
+module.exports = {
 
-  get_milestones:  () ->
+  get_milestones: () ->
     Bungie.call_request_uri Destiny2Api.METHODS.GET_PUBLIC_MILESTONES.VERB, Destiny2Api.METHODS.GET_PUBLIC_MILESTONES.URI
 
   get_milestone_content: (milestone_hash) ->
@@ -25,9 +22,10 @@ class Milestones
       inventoryItemDefinition = Destiny2Api.METHODS.GET_DESTINY_ENTITY_DEFINITION.ENTITIES.INVENTORY_ITEM
       flashpoint_quest_hash = result.Response[flashpoint_hash]['availableQuests'][0]['questItemHash']
       Bungie.get_entity_definition(inventoryItemDefinition, flashpoint_quest_hash).then((result) ->
-        result
+        location = result.Response['displayProperties']['name'].split(':')[1]
+        message = "O Flashpoint desse reset é em #{location}!"
+        Bot.send_message(message)
       )
     )
 
-
-module.exports = Milestones
+}

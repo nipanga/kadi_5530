@@ -1,14 +1,12 @@
 #
-#
-#
 TelegramBot = require 'node-telegram-bot-api'
-Config = require '../config/config'
+Env = require '../config/environment'
 
 BOT_OPTIONS = {
   polling: true
 }
 
-Bot = new TelegramBot Config.BOT_TOKEN, BOT_OPTIONS
+Bot = new TelegramBot Env.TG_BOT_TOKEN, BOT_OPTIONS
 
 Bot.on 'callback_query', (callbackQuery) ->
   msg = callbackQuery.message
@@ -18,12 +16,12 @@ Bot.on 'callback_query', (callbackQuery) ->
   }
   Bot.editMessageText text, opts
 
-class Bot
+module.exports = {
 
   send_message: (message) ->
-    Bot.sendMessage Config.GROUP_CHAT.TM_DESTINY_2, message
+    Bot.sendMessage Env.TG_GROUP_CHAT, message
 
   send_photo: (img, caption) ->
-    Bot.sendPhoto Config.GROUP_CHAT.TM_DESTINY_2, img, {caption: caption}
+    Bot.sendPhoto Env.TG_GROUP_CHAT, img, {caption: caption}
 
-module.exports = Bot
+}
